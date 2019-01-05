@@ -91,8 +91,8 @@ define('CLIENT_LAYOUT', 'client/app');
 /* Email Setting constatnts */
 define("SMTP_HOST", "smtpout.secureserver.net");
 define("SMTP_PORT", '3535');
-define("SMTP_USER", 'noreply@helpdesk.experttech.ca');
-define("SMTP_PASS", 'J7688328jgjj!@#');
+//define("SMTP_USER", 'noreply@helpdesk.experttech.ca');
+//define("SMTP_PASS", 'J7688328jgjj!@#');
 
 //define("SMTP_HOST", "relay-hosting.secureserver.net");
 //define("SMTP_PORT", '25');

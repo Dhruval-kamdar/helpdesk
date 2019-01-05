@@ -1,6 +1,6 @@
 <div class="wrapper wrapper-content white-bg m-t">
     <div class=" animated fadeInRightBig">
-        <form method="post" class="form-horizontal"  enctype="multipart/form-data"  action="<?= admin_url(); ?>invoice/add" id='invoiceAdd'>
+        <form method="post" class="form-horizontal"  enctype="multipart/form-data"  action="<?= admin_url(); ?>invoice/addInvoice" id='invoiceAdd'>
             <div class="form-group headingmain">						
                 <h2 class="title" style="margin:10px"> Invoice Details</h2>								
             </div>

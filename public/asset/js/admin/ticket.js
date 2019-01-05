@@ -24,7 +24,6 @@ var Tickets = function() {
             ]
         });
 
-
         $('body').on('click', '.interestedlist', function() {
             var muckId = $(this).attr('data-id');
             var data = '';
@@ -40,6 +39,17 @@ var Tickets = function() {
         $('body').on('change','.selectYear',function(){
             var value = $(this).val();
             window.location.href = baseurl + 'admin/dashboard/'+ value;
+        });
+        
+        $('body').on('click', '.archivebtn', function(){
+             var muckId = $(this).attr('data-id');
+            if (muckId != "")
+            {
+                var data = {'muckId': muckId, '_token': $("input[name=_token]").val()};
+                ajaxcall(baseurl + 'admin/tickets/archive', data, function(output) {
+                    handleAjaxResponse(output)
+                });
+            }
         });
     };
 

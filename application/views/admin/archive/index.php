@@ -37,28 +37,10 @@
                                             <td><?= $getTicket[$i]->name; ?></td>
                                             <td><?= $getTicket[$i]->priority; ?></td>
                                             <td>
-                                                <?php
-                                                if (getStatus($getTicket[$i]->status) == 'New') {
-                                                    $color = 'background-color:#999999;color:white;';
-                                                } else if (getStatus($getTicket[$i]->status) == 'Answered') {
-                                                    $color = 'background-color:#1a7bb9;color:white;';
-                                                } else if (getStatus($getTicket[$i]->status) == 'Closed') {
-                                                    $color = 'background-color:#999999;color:white;';
-                                                } else if (getStatus($getTicket[$i]->status) == 'Open') {
-                                                    $color = 'background-color:red;color:white;';
-                                                } else if (getStatus($getTicket[$i]->status) == 'In Progress') {
-                                                    $color = 'background-color:green;color:white;';
-                                                }
-                                                ?>
-                                                <span class="btn btn-xs" style="<?php echo $color; ?>">  <?php echo getStatus($getTicket[$i]->status); ?> </span>
+                                                <span class="btn btn-xs" style="background-color:#f7a042;color:white;">  <?php echo($getTicket[$i]->status); ?> </span>
                                             </td>
-                                            <td class="tooltip-demo">   
-                                                <a title="Edit Ticket" data-toggle="tooltip" data-placement="top" href="<?= admin_url().'tickets/edit/' .  $this->utility->encode($getTicket[$i]->id); ?>"> <i class="fa fa-edit text-navy"></i> </a>
-
-                                                <a title="Preview Ticket" data-toggle="tooltip" data-placement="top" href="<?= admin_url().'tickets/view/'.  $this->utility->encode($getTicket[$i]->id); ?>"> <i class="fa fa-eye text-navy"></i> </a>
-
-                                                <a data-toggle="modal" data-toggle="tooltip" data-placement="top" data-target="#myModal_autocomplete" data-href="<?= admin_url().'tickets/deleteTicket'?>" data-id="<?php echo $getTicket[$i]->id; ?>" class="deletebutton"> <i class="fa fa-close text-navy"></i>
-                                                </a> 
+                                            <td class="tooltip-demo"> 
+                                                <a title="Preview Ticket" data-toggle="tooltip" data-placement="top" href="<?= admin_url().'archive/view/'.  $this->utility->encode($getTicket[$i]->id); ?>"> <i class="fa fa-eye text-navy"></i> </a>
 
                                             </td> 
                                         </tr>

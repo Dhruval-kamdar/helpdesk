@@ -31,7 +31,7 @@ class Tickets extends Admin_Controller {
         );
         $clientId = '';
         $companyId = '';
-        $data['getTicket'] = $this->this_model->getClientTicketList($clientId,$companyId);
+        $data['getTicket'] = $this->this_model->getClientTicketList_closed($clientId,$companyId);
         
         $this->load->view(ADMIN_LAYOUT, $data);
     }
@@ -219,6 +219,14 @@ class Tickets extends Admin_Controller {
     function getCompanyName() {
         if ($this->input->post()) {
             $res = $this->this_model->getCompanyName($this->input->post());
+            echo json_encode($res);
+            exit();
+        }
+    }
+    
+    function archive(){
+        if($this->input->post()){
+            $res = $this->this_model->archive($this->input->post('muckId'));
             echo json_encode($res);
             exit();
         }

@@ -116,7 +116,6 @@ class Html2pdf {
 	 */	
 	function create($mode = 'download') 
 	{
-	    
    		if (is_null($this->html)) {
 			show_error("HTML is not set");
 		}

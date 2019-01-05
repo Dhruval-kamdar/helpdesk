@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'account';
 $route['admin/dashboard/(:any)'] = 'admin/dashboard/index/$1';
+$route['admin/invoice/addInvoice'] = 'admin/invoice/addInvoice';
 $route['admin/invoice/(:any)'] = 'admin/invoice/index/$1';
 $route['register'] = 'account/register';
 $route['404_override'] = '';

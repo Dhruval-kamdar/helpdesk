@@ -7,7 +7,7 @@
                     <div class="ibox-title">
                         <h5>Invoice List</h5>
                         <div class="ibox-tools">
-                            <a href="<?= admin_url(); ?>invoice/add" class="btn btn-primary">
+                            <a href="<?= admin_url(); ?>invoice/addInvoice" class="btn btn-primary">
                                 <i class="fa fa-plus"></i>Add New
                             </a>
                         </div>
@@ -18,10 +18,16 @@
                                     <select class="form-control m-b selectYear">
                                         <option value="">Select Year</option>
                                         <?php for ($i = 2017; $i <= date('Y'); $i++) { ?>
-                                            <option value="<?php echo $i; ?>"
-                                                    <?php if ($i == $year) {
-                                                        echo 'selected="selected"';
-                                                    } ?>><?php echo $i; ?></option>
+                                        <option value="<?php echo $i;?>"
+                                        <?php if(isset($year)){
+                                            if($i == $year) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }else{
+                                            if($i == date('Y')) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }?>><?php echo $i; ?></option>
                                                 <?php }
                                                 ?>
                                     </select>

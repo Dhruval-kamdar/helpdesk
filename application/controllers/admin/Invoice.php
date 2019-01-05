@@ -35,10 +35,10 @@ class Invoice extends Admin_Controller {
         $this->load->view(ADMIN_LAYOUT, $data);
     }
 
-    function add() {
+    function addInvoice() {
         $data['page'] = "admin/invoice/add";
         $data['sale'] = 'active';
-        $data['pay'] = 'active';
+        $data['invoice'] = 'active';
         $data['pagetitle'] = 'Invoice';
         $data['var_meta_title'] = 'Invoice';
         $data['breadcrumb'] = array(
@@ -58,6 +58,7 @@ class Invoice extends Admin_Controller {
         );
 
         if ($this->input->post()) {
+            
             $res = $this->this_model->addInvoice($this->input->post());
             if ($res) {
                 $json_response['status'] = 'success';
@@ -126,7 +127,7 @@ class Invoice extends Admin_Controller {
     function detail($id) {
         $invoiceId = $this->utility->decode($id);
         if (!ctype_digit($invoiceId)) {
-//            return(admin_url().'client');
+            return(admin_url().'client');
         }
         $data['page'] = "admin/invoice/detail";
         $data['client'] = 'active';
@@ -358,9 +359,9 @@ class Invoice extends Admin_Controller {
         
         $data['invoiceData'] = $invoiceData = $this->this_model->getInvoiceById($invoiceId);
         $data['invoicepaymentData'] = $this->this_model->getInvoicePaymentDetails($invoiceId);
-      
+     
         $invoiceNumber = trim($invoiceData[0]->ref_no);
-        
+         
         //Load the library
         $this->load->library('html2pdf');
 
@@ -379,7 +380,7 @@ class Invoice extends Admin_Controller {
 //        );
 
         //Load html view
-      
+        
         $this->html2pdf->html($this->load->view('admin/invoice/pdf', $data, true));
         unlink('public/asset/pdfs/'.$invoiceNumber.'.pdf');
         if ($this->html2pdf->create('save')) {

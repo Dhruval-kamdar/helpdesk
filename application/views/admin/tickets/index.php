@@ -59,6 +59,9 @@
 
                                                 <a data-toggle="modal" data-toggle="tooltip" data-placement="top" data-target="#myModal_autocomplete" data-href="<?= admin_url().'tickets/deleteTicket'?>" data-id="<?php echo $getTicket[$i]->id; ?>" class="deletebutton"> <i class="fa fa-close text-navy"></i>
                                                 </a> 
+                                                
+                                                <a  title="Archive Ticket" data-toggle="tooltip" data-placement="top"  data-href="<?= admin_url().'tickets/archive'?>" data-id="<?php echo $getTicket[$i]->id; ?>" class="archivebtn"> <i class="fa fa-archive text-navy" ></i>
+                                                </a> 
 
                                             </td> 
                                         </tr>

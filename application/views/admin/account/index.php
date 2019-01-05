@@ -9,7 +9,15 @@
                         <?php
                             for($i=2017; $i<=date('Y'); $i++){ ?>
                                 <option value="<?php echo $i;?>"
-                                        <?php if($i == $year) {echo 'selected="selected"'; }?>><?php echo $i;?></option>
+                                        <?php if(isset($year)){
+                                            if($i == $year) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }else{
+                                            if($i == date('Y')) {
+                                                echo 'selected="selected"';
+                                            }
+                                        }?>><?php echo $i;?></option>
                            <?php }
                         ?>
                     </select>

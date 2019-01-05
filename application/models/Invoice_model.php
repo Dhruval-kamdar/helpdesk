@@ -35,6 +35,7 @@ class Invoice_model extends My_model {
     }
 
     public function getInvoiceList($invoiceId = null, $clientId , $year) {
+       $data['table'] = TABLE_INVOICE . ' as inv';
         $data['select'] = ['inv.*', 'SUM(invDetail.total) as totalPrice',
 //            'SUM(invPayment.amount) as totalPaidAmount',
             'GROUP_CONCAT(invDetail.id) as totalPaidAmount',
@@ -60,10 +61,10 @@ class Invoice_model extends My_model {
                 'comp.id = usr.company_id',
                 'LEFT',
             ],
-//            TABLE_INVOICE_PAYMENT . ' as invPayment' => [
-//                'invPayment.invoice_id = inv.id',
-//                'LEFT',
-//            ],
+            TABLE_INVOICE_PAYMENT . ' as invPayment' => [
+                'invPayment.invoice_id = inv.id',
+                'LEFT',
+            ],
         ];
         if($year){
             
@@ -86,6 +87,8 @@ class Invoice_model extends My_model {
                 ],
             ];
         }
+        
+        
         if ($invoiceId) {
             $data['where'] = ['inv.id' => $invoiceId];
         }
@@ -93,13 +96,19 @@ class Invoice_model extends My_model {
             $data['where'] = ['inv.client_id' => $clientId];
         }
         if($year){
-            $data['where'] = ['YEAR(invPayment.payment_date)' => $year];
+            $data['where'] = ['YEAR(inv.dt_created)' => $year];
+        }else{
+          
+           $year1 = date('Y');
+            $data['where'] = ['YEAR(inv.dt_created)' => $year1];
         }
+        
         $data['groupBy'] = ['inv.id'];
-        $data['table'] = TABLE_INVOICE . ' as inv';
+        
 //        print_r($data); exit();
         $result = $this->selectFromJoin($data);
 //       echo $this->db->last_query(); exit();
+   //    print_r($result);exit;
         return $result;
     }
 

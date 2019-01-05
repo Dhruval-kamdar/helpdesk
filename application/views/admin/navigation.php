@@ -53,6 +53,8 @@
                 </ul>
             </li>
             
+            
+            
             <li class="<?= $setting; ?>">
                 <a href=""><i class="fa fa-gear"></i> <span class="nav-label">Setting</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -67,6 +69,10 @@
             </li>
             <li class="<?= $resetPassword; ?>">
                 <a href="<?= admin_url() . 'reset_password'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Reset Password</span></a>
+            </li>
+            
+            <li class="<?= $archive; ?>">
+                <a href="<?= admin_url() . 'archive'; ?>"><i class="fa fa-archive"></i><span class="nav-label">Archive</span></a>
             </li>
         </ul>
 
