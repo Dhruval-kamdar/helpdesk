@@ -9,6 +9,7 @@ class Tickets_model extends My_model {
 
     function addTicket($postData) {
         $ticket_attachment = '';
+    
         if (!empty($_FILES['ticket_attachment'])) {
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'gif|jpg|png';
@@ -16,8 +17,8 @@ class Tickets_model extends My_model {
             $config['max_width'] = '3000';
             $config['max_height'] = '3000';
 
-            $this->load->library('upload', $config);
-
+            $this->load->library('upload');
+            $this->upload->initialize($config);
             if (!$this->upload->do_upload('ticket_attachment')) {
                 $json_response['status'] = 'error';
                 $json_response['message'] = $this->upload->display_errors();
