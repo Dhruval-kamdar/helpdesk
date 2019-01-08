@@ -242,6 +242,7 @@ var Document = function() {
             ajaxcall(url, data, function(output) {
                 var output = JSON.parse(output);
                 $('.appendRowListHtml').html(output);
+                 $('.editablerow').hide();
             });
         });
 //        alert();
@@ -311,22 +312,60 @@ var Document = function() {
     }
     
     var edit=function(){
+       
        $('body').on('click', '.editRow', function() {
-            $('.saveRow').remove();
-           var id=$(this).attr('data-id');
-           var markup='<i class="fa fa-check text-navy saveRow" data-id="'+ id +'" ></i>';
-           $(this).append(markup);
-           $('tr').prop("contenteditable", false);
-           $(this).closest('tr').prop("contenteditable", true);
+//            $('.saveRow').remove();
+           var id = $(this).attr('data-count');
+           var doc_id = $(this).attr('data-id');
+           var url = $(this).attr('data-url');
+           $('.textfiled'+id).show();
+           $('.lablefiled'+id).hide();
+           
+            var markup='<i class="fa fa-check text-navy saveRow" doc_id="'+doc_id+'" data-url="'+url+'" data-id="'+ id +'" ></i>';
+            $(this).parent().append(markup);
+           
+//           var markup='<i class="fa fa-check text-navy saveRow" data-id="'+ id +'" ></i>';
+//           $(this).append(markup);
+//           $('tr').prop("contenteditable", false);
+//           $(this).closest('tr').prop("contenteditable", true);
        });
        
        $('body').on('click', '.saveRow', function() {
-           var id=$(this).attr('data-id');
            
-            var rowCount = $(this).closest("tr td" ).length;
-            alert(rowCount);
+            var id=$(this).attr('data-id');
+            var url = $(this).attr('data-url');
+            var doc_id = $(this).attr('doc_id');
+             var params = {};
+             var that =  $(this);
+            $( ".textfiled"+id ).each(function( index ) {
+                var name =  $( this ).attr('name');
+                params[name] = $( this ).val();
+               
+              });
+            var data = {columnId: params,rowCount: id,doc_id:doc_id};
+            ajaxcall(url, data, function(output) {
+                handleAjaxResponse(output);
+                var output = JSON.parse(output);
+                $('.lablefiled'+id).show();
+                $('.textfiled'+id).hide();
+                that.remove();
+               dddd(doc_id);
+            })
+            
+   
+           
 //           console.log($(this).closest('tr'));
        });
+       
+       function dddd(docsId){
+           var url = baseurl + 'admin/document/getRowList';
+            var data = {docsId: docsId};
+            ajaxcall(url, data, function(output) {
+                var output = JSON.parse(output);
+                $('.appendRowListHtml').html(output);
+                 $('.editablerow').hide();
+            });
+       }
     };
     return {
         //main function to initiate the module

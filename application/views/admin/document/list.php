@@ -42,7 +42,7 @@
                                             <a data-toggle="modal" title="Add Column"  data-id="<?php echo $docsArray[$i]->id; ?>"  data-target="#addColumnModel"  class="columnModel" ><i class="fa fa-columns text-navy"></i></a>        
                                             <a data-toggle="modal" title="Add Rows"  data-id="<?php echo $docsArray[$i]->id; ?>"  data-target="#addRowModel"  class="rowModel" ><i class="fa fa-plus text-navy"></i></a>        
                                             <a data-toggle="modal" title="List Rows"  data-id="<?php echo $docsArray[$i]->id; ?>" data-docname="<?php echo $docsArray[$i]->document_name; ?>" data-target="#listRowModel"  class="rowListModel" ><i class="fa fa-laptop text-navy"></i></a>        
-                                            <a title="Pdf" data-toggle="tooltip" data-placement="top" href="<?php echo admin_url('document/downloadpdf/') . $this->utility->encode($docsArray[$i]->id); ?>"> <i class="fa fa-file-pdf-o text-navy"></i> </a>
+                                            <!--<a title="Pdf" data-toggle="tooltip" data-placement="top" href="<?php //echo admin_url('document/downloadpdf/') . $this->utility->encode($docsArray[$i]->id); ?>"> <i class="fa fa-file-pdf-o text-navy"></i> </a>-->
                                         </td>
                                     </tr>
                                 <?php } ?>

@@ -34,6 +34,9 @@ class Dashboard extends Admin_Controller {
         );
         $clientId = '';
         $companyId = '';
+        if($year == ''){
+            $year = date('Y');
+        }
         $data ['year'] = $year; 
         $data['getTicket'] = $this->this_model->getClientTicketList($clientId, $companyId);
         $data['getAmount'] = $this->Invoice_model->totalAmount($year);

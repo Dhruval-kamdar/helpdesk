@@ -373,6 +373,23 @@ class Document_model extends My_model {
         }
         return $json_response;
     }
+    
+    function editRow($postData){
+        
+        
+        
+        foreach($postData['columnId'] as $key=>$value){
+            $data['update']['row_value'] = $value;
+            $data['where'] = ['docs_id' => $postData['doc_id'],'rowcount'=>$postData['rowCount'],'column_id'=>$key];
+            $data['table'] = TABLE_DOCUMENT_ROW;
+            $result = $this->updateRecords($data);
+            
+        }
+        
+        $json_response['status'] = 'success';
+        $json_response['message'] = 'Row edited successfully';
+        return $json_response;
+    }
 
 }
 

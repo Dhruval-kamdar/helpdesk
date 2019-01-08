@@ -310,6 +310,15 @@ class Document extends Admin_Controller {
             exit;
         }
     }
+    
+    public function editRow(){
+        
+        $res = $this->this_model->editRow($this->input->post());
+        echo json_encode($res);
+        exit();
+        
+        
+    }
 }
 
 ?>

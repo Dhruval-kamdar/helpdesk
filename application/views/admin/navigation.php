@@ -31,6 +31,9 @@
             <li class="<?= $ticket; ?>">
                 <a href="<?= admin_url() . 'tickets'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Tickets</span></a>
             </li>
+            <li class="<?= $archive; ?>">
+                <a href="<?= admin_url() . 'archive'; ?>"><i class="fa fa-archive"></i><span class="nav-label">Archive</span></a>
+            </li>
             <li class="<?= $sale; ?>">
                 <a href=""><i class="fa fa-gear"></i> <span class="nav-label">Sales</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -71,9 +74,7 @@
                 <a href="<?= admin_url() . 'reset_password'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Reset Password</span></a>
             </li>
             
-            <li class="<?= $archive; ?>">
-                <a href="<?= admin_url() . 'archive'; ?>"><i class="fa fa-archive"></i><span class="nav-label">Archive</span></a>
-            </li>
+            
         </ul>
 
     </div>
