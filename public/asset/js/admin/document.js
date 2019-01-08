@@ -309,7 +309,25 @@ var Document = function() {
             });
         });
     }
-
+    
+    var edit=function(){
+       $('body').on('click', '.editRow', function() {
+            $('.saveRow').remove();
+           var id=$(this).attr('data-id');
+           var markup='<i class="fa fa-check text-navy saveRow" data-id="'+ id +'" ></i>';
+           $(this).append(markup);
+           $('tr').prop("contenteditable", false);
+           $(this).closest('tr').prop("contenteditable", true);
+       });
+       
+       $('body').on('click', '.saveRow', function() {
+           var id=$(this).attr('data-id');
+           
+            var rowCount = $(this).closest("tr td" ).length;
+            alert(rowCount);
+//           console.log($(this).closest('tr'));
+       });
+    };
     return {
         //main function to initiate the module
         documentList: function() {
@@ -320,6 +338,7 @@ var Document = function() {
             editLabel();
             manageItem();
             gneral();
+            edit();
         },
     };
 }();

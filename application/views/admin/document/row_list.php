@@ -32,7 +32,14 @@
                 <?php }
                 if (!empty($value)) {
                     ?>
-                    <td><a title="Delete"  class="deleteRow" data-url="<?php echo admin_url() . 'document/deleteRow' ?>" data-count="<?php echo $RowCounts; ?>" data-id="<?php echo $deleteId; ?>" ><i class="fa fa-close text-navy"></i></a></td>
+                    <td>
+                        <a title="Delete"  class="deleteRow" data-url="<?php echo admin_url() . 'document/deleteRow' ?>" data-count="<?php echo $RowCounts; ?>" data-id="<?php echo $deleteId; ?>" >
+                            <i class="fa fa-close text-navy"></i>
+                        </a>
+                        
+                        <a title="Edit" class="editRow"  data-url="<?php echo admin_url() . 'document/deleteRow' ?>" data-count="<?php echo $RowCounts; ?>" data-id="<?php echo $deleteId; ?>" >
+                           <i class="fa fa-pencil-square-o text-navy" ></i>
+                    </td>
             <?php } ?>  
             </tr>
 <?php } ?>

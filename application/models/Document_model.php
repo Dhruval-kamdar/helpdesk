@@ -307,17 +307,6 @@ class Document_model extends My_model {
 
     function getRowData($postData, $clientId = NULL) {
         $postData['docsId'];
-//        $dataColumn = $this->db->get_where(TABLE_DOCUMENT_COLUMN, array('docs_id' => $postData['docsId']))->result_array();
-////        print_r($dataColumn);
-////        exit;
-//        $dataRow = array();
-//        for ($j = 0; $j < count($dataColumn); $j++) {
-////            print_r();exit;
-//            $dataRow[$j] = $this->db->get_where(TABLE_DOCUMENT_ROW, array('docs_id' => $postData['docsId']))->result_array();
-////            $dataRow[$j] = $this->db->get_where(TABLE_DOCUMENT_ROW, array('column_id' => $dataColumn[$j]['id']))->result_array();
-//        }
-//        print_r($dataRow);exit;
-
         $data['select'] = ['docsClmn.*', 'docsRow.row_value', 'docsRow.rowcount', 'docsRow.id as rowId'
         ];
         $data['table'] = TABLE_DOCUMENT_COLUMN . ' docsClmn';
