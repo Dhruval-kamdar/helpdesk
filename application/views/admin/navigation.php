@@ -28,12 +28,21 @@
             <li class="<?= $client; ?>">
                 <a href="<?= admin_url(); ?>client"><i class="fa fa-users"></i> <span class="nav-label">Client</span></a>
             </li>
-            <li class="<?= $ticket; ?>">
-                <a href="<?= admin_url() . 'tickets'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Tickets</span></a>
+            <li class="<?= $ticket; ?> <?= $archive; ?>">
+                <a href=""><i class="fa fa-gear"></i> <span class="nav-label">Tickets</span> <span class="fa arrow"></span></a>
+                
+                <ul class="nav nav-second-level">
+                    <li class="<?= $ticket; ?>">
+                        <a href="<?= admin_url() . 'tickets'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Tickets</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li class="<?= $archive; ?>">
+                        <a href="<?= admin_url() . 'archive'; ?>"><i class="fa fa-archive"></i><span class="nav-label">Archive</span></a>
+                    </li>
+                </ul>
             </li>
-            <li class="<?= $archive; ?>">
-                <a href="<?= admin_url() . 'archive'; ?>"><i class="fa fa-archive"></i><span class="nav-label">Archive</span></a>
-            </li>
+            
             <li class="<?= $sale; ?>">
                 <a href=""><i class="fa fa-gear"></i> <span class="nav-label">Sales</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -44,7 +53,7 @@
                 </ul>
             </li>
             <li class="<?= $label; ?>">
-                <a href="<?= admin_url() . 'label'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Labels</span></a>
+                <a href="<?= admin_url() . 'label'; ?>"><i class="fa fa-ticket"></i> <span class="nav-label">Services</span></a>
             </li>
             <li class="<?= $document; ?>">
                 <a href=""><i class="fa fa-file-code-o"></i> <span class="nav-label">Documents</span> <span class="fa arrow"></span></a>

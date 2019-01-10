@@ -488,13 +488,13 @@ class Invoice_model extends My_model {
     public function totalAmount($year = NULL) {
         $invoiceId = [];
         if($year){
-            $data['select'] = ['invPayment.invoice_id'];
-            $data['table'] = TABLE_INVOICE_PAYMENT . ' as invPayment';
-            $data['where'] = ['YEAR(payment_date)' => $year];
+            $data['select'] = ['invoice.id'];
+            $data['table'] = TABLE_INVOICE . ' as invoice';
+            $data['where'] = ['YEAR(dt_created)' => $year];
             $invoice_id = $this->selectRecords($data);
             if(!empty($invoice_id)){
                 for($i=0; $i<count($invoice_id); $i++){
-                    $invoiceId[] =   $invoice_id[$i]->invoice_id;
+                    $invoiceId[] =   $invoice_id[$i]->id;
                 }
             }
        

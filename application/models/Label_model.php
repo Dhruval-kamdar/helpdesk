@@ -131,10 +131,10 @@ class Label_model extends My_model {
         ];
         $data ['table'] = TABLE_LABEL_ITEM;
         $response = $this->isDuplicate($data);
-        if ($response > 0) {
-            $json_response['status'] = 'error';
-            $json_response['message'] = 'Value already exists';
-        } else {
+//        if ($response > 0) {
+//            $json_response['status'] = 'error';
+//            $json_response['message'] = 'Value already exists';
+//        } else {
             $data['insert']['item_date'] = date('Y-m-d', strtotime($postData['item_date']));
             $data['insert']['item_value'] = $postData['item_value'];
             $data['insert']['label_id'] = $postData['labelId'];
@@ -151,7 +151,7 @@ class Label_model extends My_model {
                 $json_response['status'] = 'error';
                 $json_response['message'] = 'Something went wrong';
             }
-        }
+//        }
 
         return $json_response;
     }

@@ -6,12 +6,12 @@
         <div class="form-group headingmain">
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class="title" style="margin:10px;"> Label List</h2>
+                    <h2 class="title" style="margin:10px;"> Services List</h2>
                 </div>
                 <div class="col-md-6">
                     <div class="ibox-tools" style="margin-top:4px;">
                         <a data-toggle="modal"  class="btn btn-primary openPopup">
-                            <i class="fa fa-plus"></i>Add Label
+                            <i class="fa fa-plus"></i>Add Services
                         </a>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
         <div class="modal-content animated bounceInRight">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Add new Label</h4>
+                <h4 class="modal-title">Add new Services</h4>
             </div>
             <form method="post" class="form-horizontal" enctype="multipart/form-data" id="addNewLabel" novalidate="novalidate">
                 <div class="modal-body">

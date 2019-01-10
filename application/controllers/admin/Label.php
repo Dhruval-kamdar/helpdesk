@@ -11,11 +11,11 @@ class Label extends Admin_Controller {
     function index() {
         $data['page'] = "admin/label/list";
         $data['label'] = 'active';
-        $data['pagetitle'] = 'Label';
-        $data['var_meta_title'] = 'Label';
+        $data['pagetitle'] = 'Services';
+        $data['var_meta_title'] = 'Services';
         $data['breadcrumb'] = array(
             'dashboard' => 'Home',
-            'label' => 'Label List',
+            'label' => 'Services List',
         );
         $data['css'] = array(
             'plugins/dataTables/datatables.min.css'
