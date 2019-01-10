@@ -93,11 +93,11 @@ class Tickets_model extends My_model {
             ],
         ];
 
-        if ($company_id != "") {
-            $data['where'] = ['t.company_id' => $company_id];
-        }
+       // if ($company_id != "") {
+            $data['where'] = ['t.company_id' => $company_id,'t.client_id'=>$client_id,'t.status !=' => 'ARCHIVE'];
+     //   }
         
-         $data['where'] = ['t.status !=' => 'ARCHIVE']; 
+       //  $data['where'] = ['t.status !=' => 'ARCHIVE']; 
         $result = $this->selectFromJoin($data);
         return $result;
     }
