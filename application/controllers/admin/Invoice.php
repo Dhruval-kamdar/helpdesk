@@ -283,7 +283,7 @@ class Invoice extends Admin_Controller {
 
         $data['invoiceId'] = $id;
         $data['tranNos'] = $this->this_model->generateTransactionNos();
-        $data['invoicepaymentData'] = $this->this_model->getInvoiceList($invoiceId, null);
+        $data['invoicepaymentData'] = $this->this_model->getInvoiceListV2($invoiceId, null);
         $this->load->view(ADMIN_LAYOUT, $data);
     }
 

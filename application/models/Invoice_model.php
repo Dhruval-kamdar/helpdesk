@@ -112,6 +112,50 @@ class Invoice_model extends My_model {
         return $result;
     }
 
+     public function getInvoiceListV2($invoiceId = null) {
+       $data['table'] = TABLE_INVOICE . ' as inv';
+        $data['select'] = ['inv.*', 'SUM(invDetail.total) as totalPrice',
+//            'SUM(invPayment.amount) as totalPaidAmount',
+            'GROUP_CONCAT(invDetail.id) as totalPaidAmount',
+//            'GROUP_CONCAT(DISTINCT invDetail.id) as totalPaidAmount',
+            'usr.first_name', 'usr.last_name', 'usr.email',
+            'invDetail.item_name',
+            'invDetail.item_desc',
+            'comp.name as companyName',
+//            'invPayment.payment_date',
+//            'invPayment.notes as paymentNote',
+//            'invPayment.amount as paidAmount',
+        ];
+        $data['join'] = [
+            TABLE_USER . ' as usr' => [
+                'usr.id = inv.client_id',
+                'LEFT',
+            ],
+            TABLE_INVOICE_DETAILS . ' as invDetail' => [
+                'invDetail.invoice_id = inv.id',
+                'LEFT',
+            ],
+            TABLE_COMPANY . ' as comp' => [
+                'comp.id = usr.company_id',
+                'LEFT',
+            ],
+            TABLE_INVOICE_PAYMENT . ' as invPayment' => [
+                'invPayment.invoice_id = inv.id',
+                'LEFT',
+            ],
+        ];
+       $data['where'] = ['inv.id' => $invoiceId];
+        
+       
+        $data['groupBy'] = ['inv.id'];
+        
+//        print_r($data); exit();
+        $result = $this->selectFromJoin($data);
+      // echo $this->db->last_query(); exit();
+   //    print_r($result);exit;
+        return $result;
+    }
+    
     public function getCompanyInvoiceList($invoiceId = null, $companyId) {
         $data['select'] = ['inv.*', 'SUM(invDetail.total) as totalPrice',
 //            'SUM(invPayment.amount) as totalPaidAmount',

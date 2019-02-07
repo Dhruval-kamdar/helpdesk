@@ -79,6 +79,7 @@ class Utility
 
     public function encode($value)
     {
+        return $value;
         if (! $value) {
             return false;
         }
@@ -91,6 +92,7 @@ class Utility
 
     public function decode($value)
     {
+        return $value;
         if (! $value) {
             return false;
         }

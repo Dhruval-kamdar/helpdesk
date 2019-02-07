@@ -112,7 +112,7 @@
         <div class="modal-content animated bounceInRight">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Edit Services</h4>
+                <h4 class="modal-title">Edit Label</h4>
             </div>
             <form method="post" class="form-horizontal" action="<?php echo admin_url() . 'Label/EditLable' ?>" enctype="multipart/form-data" id="editLabel" novalidate="novalidate">
                 <div class="modal-body">
