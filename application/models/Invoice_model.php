@@ -593,10 +593,10 @@ class Invoice_model extends My_model {
         $InvArr = $this->selectRecords($data);
         $invoiceArr = explode(',', $InvArr[0]->invId);
         $data = '';
-        $data['select'] = ['SUM(invDetail.total) as total'];
-        $data['where_in'] = array('invDetail.invoice_id' => $invoiceArr);
-        $data['table'] = TABLE_INVOICE_DETAILS . ' as invDetail';
-        $result = $this->selectRecords($data);
+        $data1['select'] = ['SUM(invDetail.total) as total'];
+        $data1['where_in'] = array('invDetail.invoice_id' => $invoiceArr);
+        $data1['table'] = TABLE_INVOICE_DETAILS . ' as invDetail';
+        $result = $this->selectRecords($data1);
         return $result;
     }
 
@@ -607,10 +607,10 @@ class Invoice_model extends My_model {
         $InvArr = $this->selectRecords($data);
         $data = '';
         $invoiceArr = explode(',', $InvArr[0]->invId);
-        $data['select'] = ['SUM(invPayment.amount) as totalPaidAmount'];
-        $data['where_in'] = array('invPayment.invoice_id' => $invoiceArr);
-        $data['table'] = TABLE_INVOICE_PAYMENT . ' as invPayment';
-        $result = $this->selectRecords($data);
+        $datal['select'] = ['SUM(invPayment.amount) as totalPaidAmount'];
+        $datal['where_in'] = array('invPayment.invoice_id' => $invoiceArr);
+        $datal['table'] = TABLE_INVOICE_PAYMENT . ' as invPayment';
+        $result = $this->selectRecords($datal);
         // print_r($result);exit;
         return $result;
     }
@@ -622,10 +622,10 @@ class Invoice_model extends My_model {
         $InvArr = $this->selectRecords($data);
         $data = '';
         $invoiceArr = explode(',', $InvArr[0]->invId);
-        $data['select'] = ['SUM(invExpense.total) as totalExpense'];
-        $data['where_in'] = array('invExpense.invoice_id', $invoiceArr);
-        $data['table'] = TABLE_INVOICE_EXPENSE . ' as invExpense';
-        $result = $this->selectRecords($data);
+        $datal['select'] = ['SUM(invExpense.total) as totalExpense'];
+        $datal['where_in'] = array('invExpense.invoice_id', $invoiceArr);
+        $datal['table'] = TABLE_INVOICE_EXPENSE . ' as invExpense';
+        $result = $this->selectRecords($datal);
         return $result;
     }
 

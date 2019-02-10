@@ -11,6 +11,7 @@ class Dashboard extends Client_Controller {
     }
 
     function index() {
+        
 //        $data['page'] = "client/account/dashboard";
         $data['page'] = "client/account/index";
         $data['dashboard'] = 'active';
@@ -34,10 +35,12 @@ class Dashboard extends Client_Controller {
 
         $client_id = $this->session->userdata['client_login']['id'];
         $companyId = $this->session->userdata['client_login']['companyId'];
-        $data['getTicket'] = $this->this_model->getClientTicketList($client_id, $companyId);
+        $data['getTicket'] = $this->this_model->getClientTicketListWithArchive($client_id, $companyId);
         
         $data['getAmount'] = $this->Invoice_model->totalClientAmount($companyId);
+        
         $data['getPaidAmount'] = $this->Invoice_model->totalClientpaidAmount($companyId);
+        
         $data['getExpAmount'] = $this->Invoice_model->totalClientexpAmount($companyId);
         $data['getLastInvoice'] = $this->Invoice_model->getLastInvoice($companyId);
         $data['getLabelinfo'] = $this->Label_model->getLabelinfo($companyId);

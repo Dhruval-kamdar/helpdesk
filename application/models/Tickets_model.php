@@ -102,6 +102,36 @@ class Tickets_model extends My_model {
         return $result;
     }
     
+    function getClientTicketListWithArchive($client_id, $company_id) {
+        
+        $data['table'] = TABLE_TICKET . ' as t';
+        $data['select'] = ['t.id', 't.ticket_code',
+            't.subject', 't.status', 't.priority', 'mdt.name',
+            'usr.first_name', 'usr.last_name',
+            'c.name as companyName'];
+        $data['join'] = [
+            TABLE_MASTER_DEPARTMENT . ' as mdt' => [
+                'mdt.id = t.department_id',
+                'LEFT',
+            ],
+            TABLE_USER . ' as usr' => [
+                'usr.id = t.client_id',
+                'LEFT',
+            ],
+            TABLE_COMPANY . ' as c' => [
+                'c.id = t.company_id',
+                'LEFT',
+            ],
+        ];
+
+       // if ($company_id != "") {
+            $data['where'] = ['t.company_id' => $company_id,'t.client_id'=>$client_id];
+     //   }
+        
+       //  $data['where'] = ['t.status !=' => 'ARCHIVE']; 
+        $result = $this->selectFromJoin($data);
+        return $result;
+    }
     
     function getClientTicketList_archive($client_id, $company_id) {
         

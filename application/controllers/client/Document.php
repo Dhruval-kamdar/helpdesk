@@ -32,7 +32,7 @@ class Document extends Client_Controller{
         $companyId = $this->session->userdata['client_login']['companyId'];
         $data['companyName'] = $this->Client_model->getcompanyDetail();
         $data['docsArray'] = $this->this_model->getCompanyDocumentDetail($companyId);
-        $this->load->view(ADMIN_LAYOUT, $data);
+        $this->load->view(CLIENT_LAYOUT, $data);
     }
 
     public function addDoument() {
