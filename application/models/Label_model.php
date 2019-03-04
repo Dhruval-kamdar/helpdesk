@@ -165,6 +165,8 @@ class Label_model extends My_model {
         $json_decodeArr = json_decode($json_encode,true);
         $finalArr = array();
         
+        unset($data);
+        
         for($i=0;$i<count($json_decodeArr);$i++)
         {
             $data['select'] = ['li.item_date', 'li.item_value'];
@@ -179,6 +181,7 @@ class Label_model extends My_model {
             $finalArr[$i]['item_date'] = $resultArr[0]->item_date;
             $finalArr[$i]['item_value'] = $resultArr[0]->item_value; 
         }
+//        print_r($finalArr); exit();
         return $finalArr;
     }
 }

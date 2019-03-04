@@ -33,7 +33,7 @@ class Tickets extends Client_Controller {
         
         $client_id = $this->session->userdata['client_login']['id'];
         $companyId =  $this->session->userdata['client_login']['companyId'];
-        $data['getTicket'] = $this->this_model->getClientTicketList($client_id,$companyId);
+        $data['getTicket'] = $this->this_model->getClientSideALLTicketList($client_id,$companyId);
         //print_r($data['getTicket']); exit();
         $this->load->view(CLIENT_LAYOUT, $data);
     }

@@ -35,7 +35,7 @@ class Dashboard extends Client_Controller {
 
         $client_id = $this->session->userdata['client_login']['id'];
         $companyId = $this->session->userdata['client_login']['companyId'];
-        $data['getTicket'] = $this->this_model->getClientTicketListWithArchive($client_id, $companyId);
+        $data['getTicket'] = $this->this_model->getClientTicketListWithArchive($client_id, $companyId,true);
         
         $data['getAmount'] = $this->Invoice_model->totalClientAmount($companyId);
         

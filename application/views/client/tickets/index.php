@@ -37,7 +37,7 @@
                                             <td>
                                                 <?php
                                                 if (getStatus($getTicket[$i]->status) == 'New') {
-                                                    $color = 'background-color:#999999;color:white;';
+                                                    $color = 'background-color:#337ab7;color:white;';
                                                 } else if (getStatus($getTicket[$i]->status) == 'Answered') {
                                                     $color = 'background-color:#1a7bb9;color:white;';
                                                 } else if (getStatus($getTicket[$i]->status) == 'Closed') {
@@ -46,6 +46,8 @@
                                                     $color = 'background-color:red;color:white;';
                                                 } else if (getStatus($getTicket[$i]->status) == 'In Progress') {
                                                     $color = 'background-color:green;color:white;';
+                                                } else if (getStatus($getTicket[$i]->status) == 'Archive') {
+                                                    $color = 'background-color:#f7a042;color:white;';
                                                 }
                                                 ?>
                                                 <span class="btn btn-xs" style="<?php echo $color; ?>">  <?php echo getStatus($getTicket[$i]->status); ?> </span>

@@ -41,6 +41,7 @@ class Dashboard extends Admin_Controller {
         $data['getTicket'] = $this->this_model->getClientTicketList($clientId, $companyId);
         $data['getAmount'] = $this->Invoice_model->totalAmount($year);
         $data['getPaidAmount'] = $this->Invoice_model->totalpaidAmount($year);
+        
         $data['getExpAmount'] = $this->Invoice_model->totalexpAmount($year);
        
         $this->load->view(ADMIN_LAYOUT, $data);

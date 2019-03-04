@@ -37,7 +37,7 @@
                                             <td><?= $getTicket[$i]->name; ?></td>
                                             <td><?= $getTicket[$i]->priority; ?></td>
                                             <td>
-                                                <span class="btn btn-xs" style="background-color:#f7a042;color:white;">  <?php echo($getTicket[$i]->status); ?> </span>
+                                                <span class="btn btn-xs" style="background-color:#f7a042;color:white;">  <?php echo getStatus($getTicket[$i]->status); ?> </span>
                                             </td>
                                             <td class="tooltip-demo"> 
                                                 <a title="Preview Ticket" data-toggle="tooltip" data-placement="top" href="<?= admin_url().'archive/view/'.  $this->utility->encode($getTicket[$i]->id); ?>"> <i class="fa fa-eye text-navy"></i> </a>

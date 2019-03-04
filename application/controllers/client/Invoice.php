@@ -70,6 +70,7 @@ class Invoice extends Client_Controller {
             exit();
         }
         $data['invoiceData'] = $this->this_model->getInvoiceById($invoiceId);
+//        echo $this->db->last_query(); exit();
         $data['invoicepaymentData'] = $this->this_model->getInvoicePaymentDetails($invoiceId);
         $this->load->view(CLIENT_LAYOUT, $data);
     }
