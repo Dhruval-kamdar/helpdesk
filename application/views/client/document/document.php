@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="ibox-content">
-
+                    <?php if(!empty($docsArray)) { ?>
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <?php
@@ -48,6 +48,9 @@
                             <?php } ?>
                         </div>
                     </div>
+                    <?php } else{ ?>
+                        <h2 style='text-align: center;'>No record found</h2>
+                    <?php } ?>
                 </div>
             </div>
         </div>
