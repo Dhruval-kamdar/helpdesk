@@ -117,7 +117,7 @@
                                             <td>
                                                 <?php
                                                 if (getStatus($getTicket[$i]->status) == 'New') {
-                                                    $color = 'background-color:#999999;color:white;';
+                                                    $color = 'background-color:#337ab7;color:white;';
                                                 } else if (getStatus($getTicket[$i]->status) == 'Answered') {
                                                     $color = 'background-color:#1a7bb9;color:white;';
                                                 } else if (getStatus($getTicket[$i]->status) == 'Closed') {

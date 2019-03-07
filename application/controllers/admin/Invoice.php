@@ -224,7 +224,9 @@ class Invoice extends Admin_Controller {
     }
 
     function deleteInvoice() {
+       
         if ($this->input->post()) {
+            
             $result = $this->this_model->deleteInvoice($this->input->post());
             echo json_encode($result);
             exit();
@@ -288,6 +290,7 @@ class Invoice extends Admin_Controller {
     }
 
     function pdf($id) {
+        
         $invoiceId = $this->utility->decode($id);
         if (!ctype_digit($invoiceId)) {
             return(admin_url() . 'invoice');

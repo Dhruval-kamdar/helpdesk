@@ -279,7 +279,7 @@ function showToster(status,message){
 function handleAjaxResponse(output) {
 
     output = JSON.parse(output);
-
+    
     if (output.message != '') {
          
         showToster(output.status, output.message, '');
@@ -468,6 +468,7 @@ var Toastr = function () {
 function handleDelete() {
 
     $('body').on('click', '#btndelete', function () {
+        
         var data = '';
         var thumb = $(this).attr('data-thumb');
         if (thumb) {

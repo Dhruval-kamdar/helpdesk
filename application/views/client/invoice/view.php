@@ -137,7 +137,10 @@
                                     </tbody>
                                 </table>
                             <?php } ?>
-                            <div class="well m-t"><?= $invoiceData[0]->note; ?>
+                            <div class="well m-t"><p>Thank you for your business!</p>
+                                <p>Customers who fall over 90 days behind in payments to Expert Tech. (from any source such as development,
+consulting, hardware,etc.) will automatically lose all privileges, and will no longer receive technical support until such
+time as their accounts are current.</p>
                             </div>
                         </div>
                         <div class="modal inmodal" id="myModal_autocomplete" tabindex="-1" role="dialog" aria-hidden="true">

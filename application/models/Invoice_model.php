@@ -438,9 +438,7 @@ class Invoice_model extends My_model {
     }
 
     public function deleteInvoice($data) {
-        $this->db->where('id', $data['id']);
-        $this->db->delete(TABLE_INVOICE);
-
+        
         $this->db->where('invoice_id', $data['id']);
         $this->db->delete(TABLE_INVOICE_DETAILS);
 
@@ -449,7 +447,10 @@ class Invoice_model extends My_model {
         $this->db->delete(TABLE_INVOICE_PAYMENT);
 
         $this->db->where('invoice_id', $data['id']);
-        $result = $this->db->delete(TABLE_INVOICE_HISTORY);
+        $this->db->delete(TABLE_INVOICE_HISTORY);
+        
+        $this->db->where('id', $data['id']);
+        $result = $this->db->delete(TABLE_INVOICE);
 
         if ($result) {
             $json_response['status'] = 'success';
