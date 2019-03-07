@@ -9,7 +9,8 @@ class Document extends Client_Controller{
     }
 
     function index() {
-        $data['page'] = "client/document/list";
+//        $data['page'] = "client/document/list";
+        $data['page'] = "client/document/document";
         $data['document'] = 'active';
         $data['pagetitle'] = 'Document';
         $data['var_meta_title'] = 'Document';
@@ -27,7 +28,7 @@ class Document extends Client_Controller{
             'client/document.js',
         );
         $data['init'] = array(
-            'Document.documentList()',
+            'Document.doc()',
         );
         $companyId = $this->session->userdata['client_login']['companyId'];
         $data['companyName'] = $this->Client_model->getcompanyDetail();

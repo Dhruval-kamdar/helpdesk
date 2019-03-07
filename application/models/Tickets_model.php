@@ -131,6 +131,8 @@ class Tickets_model extends My_model {
         
        //  $data['where'] = ['t.status !=' => 'ARCHIVE']; 
         $result = $this->selectFromJoin($data);
+//        echo $this->db->last_query();
+//        print_r($result); exit();
         return $result;
     }
     

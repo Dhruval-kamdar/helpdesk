@@ -191,16 +191,8 @@ var Document = function() {
             });
         });
         
-        $('.rowListModel').click(function() {
-            var docsId = $(this).attr('data-id');
-            $('.docsId').val(docsId);
-            var url = baseurl + 'client/document/getRowList';
-            var data = {docsId: docsId};
-            ajaxcall(url, data, function(output) {
-                var output = JSON.parse(output);
-                $('.appendRowListHtml').html(output);
-            });
-        });
+        
+        
         
         $('#data_1 .input-group.date').datepicker({
             todayBtn: "linked",
@@ -247,7 +239,30 @@ var Document = function() {
             });
         });
     }
-
+    
+    var tabPaneCode = function(){
+       $(document).ready(function(){
+//           alert('ss');
+           $('.rowListModel').first().trigger('click');
+       });
+       
+        
+        $('.rowListModel').click(function() {
+            var htmId = $(this).attr('href');
+//            alert(htmId);
+            var docsId = $(this).attr('data-id');
+            $('.docsId').val(docsId);
+            var url = baseurl + 'client/document/getRowList';
+            var data = {docsId: docsId};
+            ajaxcall(url, data, function(output) {
+                var output = JSON.parse(output);
+//                $('.appendRowListHtml').html(output);
+//                alert(htmId);
+                $(htmId).html(output);
+            });
+        });
+    }
+    
     return {
         //main function to initiate the module
         documentList: function() {
@@ -259,5 +274,8 @@ var Document = function() {
             manageItem();
             gneral();
         },
+        doc : function(){
+            tabPaneCode();
+        }        
     };
 }();
